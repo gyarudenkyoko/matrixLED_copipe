@@ -1,0 +1,95 @@
+
+//任意のピクセルに点を表示
+  matrix.clear();      // clear display
+  //指定された(x, y)の場所にLED点灯のためのフラグを立てる
+  matrix.drawPixel(0, 0, LED_ON);  
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+//線を表示する
+  matrix.clear();
+  //線の表示 matrix.drawLine(始点X,Y, 終点X,Y, LED_ON);
+  matrix.drawLine(0,0, 7,7, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+//四角（線）四角（塗りつぶし）を表示する X,Yは0から、幅,高さは1から数字を開始する
+  matrix.clear();
+  //四角（線）の表示 matrix.drawRect(始点X,Y, 幅,高さ, LED_ON);
+  matrix.drawRect(0,0, 8,8, LED_ON);
+  //四角（塗りつぶし）の表示　matrix.fillRect(始点X,Y, 幅,高さ, LED_ON);
+  matrix.fillRect(2,2, 4,4, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+
+//円を表示する（線）
+  matrix.clear();
+  //円（線）の表示 matrix.drawCircle(円の中心点X,Y, 半径, LED_ON);
+  matrix.drawCircle(3,3, 3, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+
+  //円を表示する（塗りつぶし）
+  matrix.clear();
+  //円（塗りつぶし）の表示 matrix.fillCircle(円の中心点X,Y, 半径, LED_ON);
+  matrix.fillCircle(3,3, 3, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+  //三角形を表示する（線）
+  matrix.clear();
+  //三角形（線）の表示 matrix.drawTriangle(三角形頂点１X,Y, 頂点２X,Y,頂点３X,Y, LED_ON);
+  matrix.drawTriangle(0,7, 4,0,7,7, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+  
+
+  //三角形を表示する（塗りつぶし）
+  matrix.clear();
+  //三角形（塗りつぶし）の表示 matrix.fillTriangle(三角形頂点１X,Y, 頂点２X,Y,頂点３X,Y, LED_ON);
+  matrix.fillTriangle(0,7, 4,0,7,7, LED_ON);
+  matrix.writeDisplay();  // write the changes we just made to the display
+  //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+  delay(500);
+
+
+//テキストの表示横スクロール
+  matrix.setTextSize(1);
+  matrix.setTextWrap(false);  // we dont want text to wrap so it scrolls nicely
+  matrix.setTextColor(LED_ON);
+  for (int8_t x=0; x>=-36; x--) {
+    matrix.clear();
+    matrix.setCursor(x,0);
+    //matrix.print("表示したい文字（アルファベット）");
+    matrix.print("Hello");
+    matrix.writeDisplay();
+    //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+    delay(100);
+  }
+
+
+  //テキストの表示縦スクロール
+  matrix.setRotation(3);
+  //テキストの表示縦スクロール
+  for (int8_t x=7; x>=-36; x--) {
+    matrix.clear();
+    matrix.setCursor(x,0);
+    matrix.print("World");
+    matrix.writeDisplay();
+    //delay(時間)にてどのくらいの長さの時間表示するかを設定。単位はミリ秒(1,000ミリ秒=1秒)
+    delay(100);
+  }
+  matrix.setRotation(0);
